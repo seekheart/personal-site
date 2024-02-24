@@ -4,7 +4,7 @@ import professionalGible from "@assets/professional_gible.jpeg";
 export const Home = () => {
     return (
         <>
-            <Card className="gap-4 max-w-3xl">
+            <Card className="max-w-3xl gap-4">
                 <div className="border border-black bg-amber-700">
                     <img src={professionalGible} alt="gible-professional"/>
                 </div>

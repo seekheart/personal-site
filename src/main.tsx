@@ -5,6 +5,7 @@ import './index.css'
 import {createBrowserRouter, RouteObject, RouterProvider} from "react-router-dom";
 import {Root} from "@routes/root";
 import {Home} from "@routes/home";
+import {Experience} from "@routes/experience";
 
 const routes: RouteObject[] = [
     {
@@ -14,6 +15,10 @@ const routes: RouteObject[] = [
             {
                 path: "/",
                 element: <Home/>
+            },
+            {
+                path: "/experience",
+                element: <Experience/>
             }
         ]
     }
