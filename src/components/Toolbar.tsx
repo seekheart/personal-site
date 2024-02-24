@@ -6,8 +6,8 @@ interface ToolbarProps {
 
 export const Toolbar = ({items}: ToolbarProps) => {
     return (
-        <nav className='border border-gray-100 bg-gray-100'>
-            <ul className="flex list-none justify-evenly p-4">
+        <nav className='border border-gray-100 bg-gray-100 p-4'>
+            <ul className="flex list-none justify-evenly">
                 {items && items.map(item => (
                     <li className="hover:text-white">
                         <Link to={`${item.link}`}>
