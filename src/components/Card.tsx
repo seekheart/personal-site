@@ -13,7 +13,7 @@ const cardStyles = cva([
         variants: {
             intent: {
                 horizontal: 'flex',
-                vertical: 'flex flex-col'
+                vertical: 'flex flex-col',
             },
             size: {
                 small: ["text-sm", "py-4", "px-8"],
