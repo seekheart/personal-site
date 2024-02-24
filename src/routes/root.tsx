@@ -4,15 +4,15 @@ import {Toolbar} from "@components/Toolbar";
 
 export const Root = () => {
     const menuItems = [
-        'Home',
-        'Content',
-        'Contact',
-        'Details'
+        {name: 'Home', link: '/'},
+        {name: 'Experience', link: '/experience'},
+        {name: 'Projects', link: '/projects'},
+        {name: 'Contact', link: '/contact'}
     ]
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col justify-center gap-16 align-middle">
             <Toolbar items={menuItems}/>
-            <div className="p-32">
+            <div className="px-96">
                 <Outlet/>
             </div>
         </div>

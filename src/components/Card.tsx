@@ -3,12 +3,11 @@ import {ComponentPropsWithRef} from "react";
 
 const cardStyles = cva([
     "bg-white",
-    "grow",
-    "items-center",
     "rounded-md",
     "border",
     "border-gray-300",
-    "shadow"
+    "shadow",
+    "ring-gray-50"
     ],
 {
         variants: {
@@ -18,7 +17,7 @@ const cardStyles = cva([
             },
             size: {
                 small: ["text-sm", "py-4", "px-8"],
-                medium: ["text-base", "py-8", "px-12"],
+                medium: ["text-base", "py-6", "px-8"],
                 large: ["text-lg", "py-12", "px-16"],
                 xlarge: ["text-xl", "py-16", "px-20"],
             },
