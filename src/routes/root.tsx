@@ -9,12 +9,11 @@ export const Root = () => {
         {name: 'Projects', link: '/projects'},
         {name: 'Contact', link: '/contact'}
     ]
+
     return (
-        <div className="flex flex-col justify-center gap-16 align-middle">
+        <div className="flex flex-col justify-center">
             <Toolbar items={menuItems}/>
-            <div className="px-96">
-                <Outlet/>
-            </div>
+            <Outlet/>
         </div>
     )
 }

@@ -84,8 +84,8 @@ export const Experience = () => {
         }
     ]
     return (
-        <div className="grid grid-cols-2 gap-x-4 gap-y-8">
+        <section className="grid grid-cols-2 gap-8 p-24 ">
             {jobs && jobs.map(job => <JobCard job={job}/>)}
-        </div>
+        </section>
     )
 }

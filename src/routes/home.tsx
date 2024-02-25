@@ -1,22 +1,17 @@
-import {Card} from "@components/Card";
-import professionalGible from "@assets/professional_gible.jpeg";
+import {Button} from "@components/Button";
 
 export const Home = () => {
     return (
-        <>
-            <Card className="max-w-3xl gap-4">
-                <div className="border border-black bg-amber-700">
-                    <img src={professionalGible} alt="gible-professional"/>
+        <section
+            className="flex h-screen justify-end bg-[url('assets/professional_gible.jpeg')] bg-cover bg-center bg-no-repeat opacity-75">
+            <div className='flex justify-center gap-8 py-96'>
+                <div className="pt-28">
+                    <Button size='xlarge' className="h-fit">Contact Me</Button>
                 </div>
-                <article>
-                    <p>
-                        Hi, my name is Mike and I've been a software engineer for N years since 2016.
-                        I'm a full stack developer with devops skills. When I'm not working professionally,
-                        I like to explore new web library and frameworks by making small pet projects. If
-                        you are interested in getting to know me, let's chat!
-                    </p>
-                </article>
-            </Card>
-        </>
+                <h1 className="basis-1/2 text-8xl font-bold text-gray-900">
+                    Mike is a Software Engineer who builds and tinkers
+                </h1>
+            </div>
+        </section>
     )
 }
