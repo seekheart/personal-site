@@ -27,17 +27,15 @@ const JobCard = ({job}: JobCardProps) => {
         description,
         techStack} = job;
     return (
-        <Card className="grid grid-cols-2 gap-8" size='xlarge'>
-            <div className="order-1 w-64">
-                <img className="rounded-full object-center" src={companyLogo} alt="company_logo"/>
-            </div>
-            <div className="order-3 flex flex-col justify-center gap-1">
+        <Card className="grid grid-cols-2 gap-2" size='xlarge'>
+            <img className="order-1 max-h-48 max-w-48 rounded-full object-cover" src={companyLogo} alt="company_logo"/>
+            <div className="order-3 flex flex-col flex-nowrap gap-2">
                 <h2 className="font-semibold">{name}</h2>
                 <span className="">{position}</span>
                 <span className="">{startDate} - {endDate}</span>
             </div>
-            <div className="order-2 text-lg">
-                {description}
+            <div className="order-2">
+                <h2 className="text-xl">{description}</h2>
             </div>
             <div className="order-4">
                 <h2 className="text-3xl font-semibold">Tech Stack</h2>

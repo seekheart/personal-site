@@ -7,6 +7,7 @@ import {Root} from "@routes/root";
 import {Home} from "@routes/home";
 import {Experience} from "@routes/experience";
 import {NotFound} from "@routes/NotFound";
+import {Projects} from "@routes/projects";
 
 const routes: RouteObject[] = [
     {
@@ -20,6 +21,10 @@ const routes: RouteObject[] = [
             {
                 path: "/experience",
                 element: <Experience/>
+            },
+            {
+                path: '/projects',
+                element: <Projects/>
             }
         ]
     },

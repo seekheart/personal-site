@@ -16,10 +16,10 @@ const cardStyles = cva([
                 vertical: 'flex flex-col',
             },
             size: {
-                small: ["text-sm", "py-4", "px-8"],
-                medium: ["text-base", "py-6", "px-8"],
-                large: ["text-lg", "py-12", "px-16"],
-                xlarge: ["text-xl", "py-16", "px-20"],
+                small: ["text-sm", "py-1", "px-2"],
+                medium: ["text-base", "py-2", "px-4"],
+                large: ["text-lg", "py-4", "px-8"],
+                xlarge: ["text-xl", "py-12", "px-16"],
             },
         },
         defaultVariants: {
