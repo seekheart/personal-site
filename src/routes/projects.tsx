@@ -1,25 +1,12 @@
 import {Card} from "@components/Card";
 import {NavLink} from "react-router-dom";
-import kotlinLogo from "@assets/kotlin-logo.jpeg";
-import reactLogo from "@assets/react-icon.png";
-import dockerLogo from "@assets/docker-logo.svg";
-import angularLogo from "@assets/angular-logo.png";
-import pythonLogo from "@assets/python-logo.png";
-import flaskLogo from "@assets/flask-logo.webp";
-import helmLogo from "@assets/helm-logo.svg";
-import kubernetesLogo from "@assets/kubernetes-logo.svg";
-import cssLogo from "@assets/css-logo.png";
-import htmlLogo from "@assets/html-logo.png";
-import javaScriptLogo from "@assets/javascript-logo.png";
-import typeScriptLogo from "@assets/typescript-logo.png";
-import javaLogo from "@assets/java-logo.png";
-import sassLogo from "@assets/sass-logo.png";
-import nginxLogo from "@assets/nginx-logo.webp";
-import mongoDbLogo from "@assets/mongodb-logo.png"
-import sqlLogo from "@assets/sql-logo.png";
-import gradleLogo from "@assets/gradle-logo.png"
-import springBootLogo from "@assets/springboot-logo.png";
-import nodejsLogo from "@assets/nodejs-logo.png";
+import {FaAngular, FaDocker, FaHtml5, FaJava, FaNodeJs, FaPython, FaReact, FaSass} from "react-icons/fa";
+import {SiCss3, SiFlask, SiGradle, SiHelm, SiKotlin, SiKubernetes, SiTypescript} from "react-icons/si";
+import {IoLogoJavascript} from "react-icons/io";
+import {DiMongodb, DiNginx, DiPostgresql} from "react-icons/di";
+import {BiLogoSpringBoot} from "react-icons/bi";
+import React from "react";
+import {IconContext} from "react-icons";
 
 interface Project {
     id: number;
@@ -33,51 +20,51 @@ interface ProjectCardProps {
     project: Project;
 }
 
-const techLogos: { [key: string]: string} = {
-    'python': pythonLogo,
-    'react': reactLogo,
-    'kotlin': kotlinLogo,
-    'docker': dockerLogo,
-    'angular': angularLogo,
-    'flask': flaskLogo,
-    'kubernetes': kubernetesLogo,
-    'helm charts': helmLogo,
-    'css': cssLogo,
-    'sass': sassLogo,
-    'html': htmlLogo,
-    'javascript': javaScriptLogo,
-    'typescript': typeScriptLogo,
-    'java': javaLogo,
-    'nginx': nginxLogo,
-    'mongodb': mongoDbLogo,
-    'sql': sqlLogo,
-    'gradle': gradleLogo,
-    'springboot': springBootLogo,
-    'nodejs': nodejsLogo,
+const techLogos: { [key: string]: React.JSX.Element } = {
+    'python': <FaPython/>,
+    'react': <FaReact/>,
+    'kotlin': <SiKotlin/>,
+    'docker': <FaDocker/>,
+    'angular': <FaAngular/>,
+    'flask': <SiFlask/>,
+    'kubernetes': <SiKubernetes/>,
+    'helm charts': <SiHelm/>,
+    'css': <SiCss3/>,
+    'sass': <FaSass/>,
+    'html': <FaHtml5/>,
+    'javascript': <IoLogoJavascript/>,
+    'typescript': <SiTypescript/>,
+    'java': <FaJava/>,
+    'nginx': <DiNginx/>,
+    'mongodb': <DiMongodb/>,
+    'sql': <DiPostgresql/>,
+    'gradle': <SiGradle/>,
+    'springboot': <BiLogoSpringBoot/>,
+    'nodejs': <FaNodeJs/>,
 }
 
 const ProjectCard = ({project}: ProjectCardProps) => {
     const {name, description, link, techStack} = project;
 
-    const getLogoForTech = (techName: string): string => {
+    const getLogoForTech = (techName: string): React.JSX.Element => {
         return techLogos[techName.toLowerCase()];
     }
 
     return (
-        <Card className="flex flex-col flex-nowrap gap-2" size='xlarge'>
-            <h2 className="text-4xl font-semibold">{name}</h2>
-            <NavLink className="text-blue-400 hover:text-blue-700" to={link}>Link</NavLink>
-            <p className="text-base">{description}</p>
-            <h4 className='text-2xl font-medium'>Tech Stack</h4>
-            <div className='flex flex-wrap gap-2 text-base font-semibold'>
-                {techStack && techStack.map((t) => (
-                        <img className="inline-block max-h-24 max-w-24  object-scale-down"
-                             src={getLogoForTech(t)}
-                             alt='tech-logo'/>
-                    )
-                )}
-            </div>
-        </Card>
+        <IconContext.Provider value={{className: "w-16 h-16 text-blue-500"}}>
+            <Card className="flex flex-col flex-nowrap gap-2" size='xlarge'>
+                <h2 className="text-4xl font-semibold">{name}</h2>
+                <NavLink className="text-blue-400 hover:text-blue-700" to={link}>Link</NavLink>
+                <p className="text-base">{description}</p>
+                <h4 className='text-2xl font-medium'>Tech Stack</h4>
+                <div className='flex flex-wrap gap-2 text-base font-semibold'>
+                    {techStack && techStack.map((t) => (
+                            getLogoForTech(t)
+                        )
+                    )}
+                </div>
+            </Card>
+        </IconContext.Provider>
     )
 }
 
