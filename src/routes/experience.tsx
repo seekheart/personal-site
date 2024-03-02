@@ -1,5 +1,5 @@
 import {Card} from "@components/Card";
-import dfciLogo from "@assets/dfci.jpeg";
+import dfciLogo from "@assets/dfci-logo.png";
 import metromileLogo from "@assets/metromile.webp";
 import panalgoLogo from "@assets/panalgo.png";
 
@@ -27,15 +27,17 @@ const JobCard = ({job}: JobCardProps) => {
         description,
         techStack} = job;
     return (
-        <Card className="grid grid-cols-2 gap-2" size='xlarge'>
-            <img className="order-1 max-h-48 max-w-48 rounded-full object-cover" src={companyLogo} alt="company_logo"/>
-            <div className="order-3 flex flex-col flex-nowrap gap-2">
-                <h2 className="font-semibold">{name}</h2>
+        <Card className="grid grid-cols-2 gap-4" size='xlarge'>
+            <div className="order-1 self-center justify-self-start">
+                <img className="rounded-full object-cover" src={companyLogo} alt="company_logo"/>
+            </div>
+            <div className="order-3 flex flex-col flex-nowrap">
+                <p className="text-lg font-semibold">{name}</p>
                 <span className="">{position}</span>
                 <span className="">{startDate} - {endDate}</span>
             </div>
             <div className="order-2">
-                <h2 className="text-3xl font-bold">Job Highlights</h2>
+                <h4 className="font-semibold">Job Highlights</h4>
                 <ul className="list-disc gap-2 pl-6 text-lg">
                     {description && description.map(d => (
                         <li>{d}</li>
@@ -43,7 +45,7 @@ const JobCard = ({job}: JobCardProps) => {
                 </ul>
             </div>
             <div className="order-4">
-                <h2 className="text-3xl font-semibold">Tech Stack</h2>
+                <h4 className="font-semibold">Tech Stack</h4>
                 <ul className="list-disc pl-6 text-lg">
                     {techStack.map(t => <li>{t}</li>)}
                 </ul>

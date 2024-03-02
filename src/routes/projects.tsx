@@ -7,6 +7,7 @@ import {DiMongodb, DiNginx, DiPostgresql} from "react-icons/di";
 import {BiLogoSpringBoot} from "react-icons/bi";
 import React from "react";
 import {IconContext} from "react-icons";
+import {Button} from "@components/Button";
 
 interface Project {
     id: number;
@@ -45,17 +46,18 @@ const techLogos: { [key: string]: React.JSX.Element } = {
 
 const ProjectCard = ({project}: ProjectCardProps) => {
     const {name, description, link, techStack} = project;
-
     const getLogoForTech = (techName: string): React.JSX.Element => {
         return techLogos[techName.toLowerCase()];
     }
 
     return (
-        <IconContext.Provider value={{className: "w-16 h-16 text-blue-500"}}>
+        <IconContext.Provider value={{className: "w-16 h-16 text-secondary-500"}}>
             <Card className="flex flex-col flex-nowrap gap-2" size='xlarge'>
-                <h2 className="text-4xl font-semibold">{name}</h2>
-                <NavLink className="text-blue-400 hover:text-blue-700" to={link}>Link</NavLink>
-                <p className="text-base">{description}</p>
+                <h4 className="font-semibold">{name}</h4>
+                <NavLink className="w-fit text-primary-600 hover:text-secondary-200" to={link}>
+                    <Button>Github Link</Button>
+                </NavLink>
+                <p>{description}</p>
                 <h4 className='text-2xl font-medium'>Tech Stack</h4>
                 <div className='flex flex-wrap gap-2 text-base font-semibold'>
                     {techStack && techStack.map((t) => (

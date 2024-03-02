@@ -8,7 +8,6 @@ import {Home} from "@routes/home";
 import {Experience} from "@routes/experience";
 import {NotFound} from "@routes/NotFound";
 import {Projects} from "@routes/projects";
-import {Contact} from "@routes/contact";
 
 const routes: RouteObject[] = [
     {
@@ -26,10 +25,6 @@ const routes: RouteObject[] = [
             {
                 path: '/projects',
                 element: <Projects/>
-            },
-            {
-                path: '/contact',
-                element: <Contact/>
             }
         ]
     },
