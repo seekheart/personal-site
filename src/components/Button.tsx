@@ -11,7 +11,7 @@ const buttonStyles = cva([
     {
         variants: {
             intent: {
-                info: 'bg-blue-400 text-white hover:bg-blue-300'
+                primary: 'text-white bg-primary-400 hover:bg-primary-300'
             },
             size: {
                 medium: 'px-6 py-4 text-base',
@@ -20,7 +20,7 @@ const buttonStyles = cva([
             }
         },
         defaultVariants: {
-            intent: 'info',
+            intent: 'primary',
             size: 'medium'
         }
     }

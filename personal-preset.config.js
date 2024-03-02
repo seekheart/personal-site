@@ -1,3 +1,5 @@
+import * as defaultTheme from "tailwindcss/defaultTheme";
+
 export const PersonalPresetConfig = {
     theme: {
         extend:
@@ -58,22 +60,13 @@ export const PersonalPresetConfig = {
                         800: 'hsl(var(--color-greyscale-800))',
                         900: 'hsl(var(--color-greyscale-900))',
                     },
-                    fontFamily: {
-                        main: ['Roboto', 'sans-serif'],
-                    },
+                    surface: 'hsl(var(--color-bg-primary))',
+                    'text-primary': 'hsl(var(--color-text-primary))',
                 }
             },
-        fontSize: {
-            xs: '0.688rem',
-            sm: '0.812rem',
-            base: '1.00rem',
-            lg: '1.188rem',
-            xl: '1.438rem',
-            '2xl': '1.750rem',
-            '3xl': '2.062rem',
-            '4xl': '2.5rem',
-            '5xl': '3.00rem',
-        }
+        fontFamily: {
+            sans: ['Roboto', ...defaultTheme.fontFamily.sans],
+        },
     },
     plugins: [],
 };

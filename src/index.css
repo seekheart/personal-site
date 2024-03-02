@@ -60,6 +60,11 @@
         --color-text-primary: 0, 0%, 0%;
     }
 
+    html, body {
+        @apply bg-surface;
+        @apply font-sans;
+    }
+
     h1 {
         @apply text-5xl;
     }
