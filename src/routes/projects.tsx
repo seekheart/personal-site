@@ -108,7 +108,7 @@ export const Projects = () => {
     ]
 
     return (
-        <section className="grid grid-cols-3 gap-4 p-36">
+        <section className="gap-4 p-36 md:flex md:flex-col lg:grid lg:grid-cols-3">
             {projects && projects.map(p => <ProjectCard project={p}/>)}
         </section>
     );

@@ -8,7 +8,7 @@ interface Job {
     name: string;
     startDate: string;
     endDate: string;
-    description: string;
+    description: string[];
     companyLogo: string;
     techStack: string[];
     position: string;
@@ -35,7 +35,12 @@ const JobCard = ({job}: JobCardProps) => {
                 <span className="">{startDate} - {endDate}</span>
             </div>
             <div className="order-2">
-                <h2 className="text-xl">{description}</h2>
+                <h2 className="text-3xl font-bold">Job Highlights</h2>
+                <ul className="list-disc gap-2 pl-6 text-lg">
+                    {description && description.map(d => (
+                        <li>{d}</li>
+                    ))}
+                </ul>
             </div>
             <div className="order-4">
                 <h2 className="text-3xl font-semibold">Tech Stack</h2>
@@ -55,7 +60,12 @@ export const Experience = () => {
             startDate: "June 2016",
             endDate: 'June 2019',
             position: 'Bioinformatics Engineer',
-            description: 'At Dana Farber Cancer Institute (DFCI), I was a bioinformatics engineer. My responsibilities included creating data ETL pipelines, architecting and developing applications, and leading projects from a technical perspective.',
+            description: [
+                'Architected ETL data pipelines',
+                'Led green field projects',
+                'Mentored junior developers in backend and frontend',
+                'Ran workshops to introduce new technology into organization',
+            ],
             name: "Dana Farber Cancer Institute",
             companyLogo: dfciLogo,
             techStack: ['Python', 'Java', 'Oracle SQL', 'Docker', 'Angular 2+', 'Typescript', 'JavaScript', 'NodeJS', 'Git', 'SVN', 'Bamboo CI']
@@ -65,7 +75,13 @@ export const Experience = () => {
             startDate: "June 2019",
             endDate: 'July 2022',
             position: 'Senior Software Engineer',
-            description: 'At Metromile, I was a senior software engineer for the enterprise team. I was responsible for application development and devops.',
+            description: [
+                'Built new features for SASS products',
+                'Collaborated with external and internal developers on api design and interfaces',
+                'Integrated customer systems into applications',
+                'Innovated and optimized DevOps workflow in company',
+                'Automated onboarding of customers into SASS products'
+            ],
             name: "Metromile Inc",
             companyLogo: metromileLogo,
             techStack: ['Python', 'Kotlin', 'Postgres SQL', 'AWS', 'Kubernetes', 'Docker', 'Groovy', 'ReactJS', 'Git', 'Jenkins', 'Terraform']
@@ -75,14 +91,19 @@ export const Experience = () => {
             startDate: "July 2022",
             endDate: 'Present',
             position: 'Software Engineer II',
-            description: "At Panalgo, I'm a software engineer II for the core engineering team. I am responsible for the delivery of features and bug fixes for IHD (company main product).",
+            description: [
+                'Resolved bugs reported by customers in production system',
+                'Created framework for backend applications and cloud infrastructure',
+                'Mentored and paired with other engineers on complex problems',
+                'Documented SDLC processes and initiated version control strategy for release of software'
+            ],
             name: "Panalgo",
             companyLogo: panalgoLogo,
             techStack: ['CoffeeScript', 'Ruby', 'ReactJS', 'Git', 'Terraform', 'AWS', 'Devpod', 'Docker']
         }
     ]
     return (
-        <section className="grid grid-cols-2 gap-8 p-24 ">
+        <section className="gap-8 p-24 md:flex md:flex-col lg:grid lg:grid-cols-2 ">
             {jobs && jobs.map(job => <JobCard job={job}/>)}
         </section>
     )
