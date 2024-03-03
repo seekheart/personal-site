@@ -38,7 +38,7 @@ export const Toolbar = ({items}: ToolbarProps) => {
     ]
     return (
         <IconContext.Provider value={{className: "w-16 h-16 hover:cursor-pointer text-secondary-600"}}>
-        <nav className='border-gray-300 flex items-center justify-start border bg-primary-400 px-24 shadow-md'>
+        <nav className='flex items-center justify-start border border-gray-300 bg-primary-400 px-24 shadow-md'>
             <div className="flex grow gap-8">
                 {contactIcons && contactIcons.map(c => (
                     <ContactIcon link={c.link} icon={c.icon}/>
@@ -46,7 +46,7 @@ export const Toolbar = ({items}: ToolbarProps) => {
             </div>
             <ul className="flex min-h-24 list-none flex-nowrap items-center text-2xl font-bold text-greyscale-700">
                 {items && items.map(item => (
-                    <li className="hover:text-white p-8">
+                    <li className="p-8 hover:text-white">
                         <Link className="size-full" to={`${item.link}`}>
                             {item.name.toUpperCase()}
                         </Link>
