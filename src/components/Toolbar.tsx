@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import {GiHamburgerMenu} from "react-icons/gi";
 
 interface ToolbarProps {
-    items: { name: string, link: string, isMobileOnly: boolean }[];
+    items: { name: string, link: string }[];
 }
 
 interface ContactIconProps {
@@ -14,11 +14,11 @@ interface ContactIconProps {
     icon: JSX.Element;
 }
 
-const iconDefaultStyles = {className: "w-8 h-8 sm:w-16 sm:h-16 hover:cursor-pointer text-secondary-600"} as const;
+const iconDefaultStyles = {className: "w-10 h-10 sm:w-16 sm:h-16 hover:cursor-pointer text-secondary-600"} as const;
 
 const ContactIcon = ({link, icon}: ContactIconProps) => {
     return (
-        <NavigationMenuRadix.Item key={link} className="hidden sm:flex">
+        <NavigationMenuRadix.Item key={link}>
             <NavigationMenuRadix.Link href={link}>
                 {icon}
             </NavigationMenuRadix.Link>
@@ -54,10 +54,11 @@ export const Toolbar = ({items}: ToolbarProps) => {
                     <ContactIcon link={c.link} icon={c.icon} key={c.link}/>
                 ))}
                 </NavigationMenuRadix.List>
-                <NavigationMenuRadix.List className="flex flex-nowrap text-2xl font-bold text-greyscale-700 sm:hidden">
+                <NavigationMenuRadix.List
+                    className="flex flex-nowrap gap-16 text-2xl font-bold text-greyscale-700 sm:hidden">
                     <NavigationMenuRadix.Item className="sm:hidden">
                         <NavigationMenuRadix.Trigger>
-                            <GiHamburgerMenu className="rounded-md bg-greyscale-100 text-greyscale-600"/>
+                            <GiHamburgerMenu className="rounded-md bg-greyscale-100 text-greyscale-900"/>
                         </NavigationMenuRadix.Trigger>
                         <NavigationMenuRadix.Content className="absolute z-10">
                             <NavigationMenuRadix.Sub>
@@ -72,11 +73,14 @@ export const Toolbar = ({items}: ToolbarProps) => {
                             </NavigationMenuRadix.Sub>
                         </NavigationMenuRadix.Content>
                     </NavigationMenuRadix.Item>
+                    {contactIcons && contactIcons.map(c => (
+                        <ContactIcon link={c.link} icon={c.icon} key={c.link}/>
+                    ))}
                 </NavigationMenuRadix.List>
 
 
                 <NavigationMenuRadix.List className="hidden flex-nowrap text-2xl font-bold text-greyscale-700 sm:flex">
-                    {items && items.filter(i => !i.isMobileOnly).map(item => (
+                    {items && items.map(item => (
                         <NavigationMenuRadix.Item className="p-8 hover:text-white" key={item.link}>
                             <Link to={`${item.link}`}>
                             {item.name.toUpperCase()}

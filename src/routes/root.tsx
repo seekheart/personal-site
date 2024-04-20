@@ -3,11 +3,9 @@ import {Toolbar} from "@components/Toolbar";
 
 export const Root = () => {
     const menuItems = [
-        {name: 'Home', link: '/', isMobileOnly: false},
-        {name: 'Experience', link: '/experience', isMobileOnly: false},
-        {name: 'Projects', link: '/projects', isMobileOnly: false},
-        {name: 'Github', link: 'https://github.com/seekheart', isMobileOnly: true},
-        {name: 'LinkedIn', link: 'https://www.linkedin.com/in/mitung/', isMobileOnly: true},
+        {name: 'Home', link: '/'},
+        {name: 'Experience', link: '/experience'},
+        {name: 'Projects', link: '/projects'}
     ]
 
     return (
