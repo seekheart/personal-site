@@ -61,9 +61,10 @@ export const Toolbar = ({items}: ToolbarProps) => {
                         </NavigationMenuRadix.Trigger>
                         <NavigationMenuRadix.Content className="absolute z-10">
                             <NavigationMenuRadix.Sub>
-                                <NavigationMenuRadix.List className="flex flex-col bg-white">
+                                <NavigationMenuRadix.List className="flex flex-col gap-4 bg-white p-4">
                                     {items && items.map(item => (
-                                        <NavigationMenuRadix.Link href={`${item.link}`} key={item.name}>
+                                        <NavigationMenuRadix.Link className="text-sm" href={`${item.link}`}
+                                                                  key={item.name}>
                                             {item.name.toUpperCase()}
                                         </NavigationMenuRadix.Link>
                                     ))}
