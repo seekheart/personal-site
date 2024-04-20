@@ -1,10 +1,12 @@
-import {Link, NavLink} from "react-router-dom";
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {JSX} from "react";
 import {IconContext} from "react-icons";
+import * as NavigationMenuRadix from "@radix-ui/react-navigation-menu";
+import {Link} from "react-router-dom";
+import {GiHamburgerMenu} from "react-icons/gi";
 
 interface ToolbarProps {
-    items: {name: string, link: string}[];
+    items: { name: string, link: string, isMobileOnly: boolean }[];
 }
 
 interface ContactIconProps {
@@ -12,11 +14,15 @@ interface ContactIconProps {
     icon: JSX.Element;
 }
 
+const iconDefaultStyles = {className: "w-8 h-8 sm:w-16 sm:h-16 hover:cursor-pointer text-secondary-600"} as const;
+
 const ContactIcon = ({link, icon}: ContactIconProps) => {
     return (
-        <NavLink to={link}>
-            {icon}
-        </NavLink>
+        <NavigationMenuRadix.Item key={link} className="hidden sm:flex">
+            <NavigationMenuRadix.Link href={link}>
+                {icon}
+            </NavigationMenuRadix.Link>
+        </NavigationMenuRadix.Item>
     )
 }
 
@@ -24,8 +30,9 @@ export const Toolbar = ({items}: ToolbarProps) => {
     const contactIcons: ContactIconProps[] = [
         {
             link: '/',
-            icon: <img className='max-h-16 max-w-16 rounded-full object-cover hover:cursor-pointer'
-                       src='https://avatars.githubusercontent.com/u/9321678?v=4' alt='avatar-logo'/>
+            icon: <img
+                className={`max-h-16 max-w-16 rounded-full object-cover hover:cursor-pointer ${iconDefaultStyles.className}`}
+                src='https://avatars.githubusercontent.com/u/9321678?v=4' alt='avatar-logo'/>,
         },
         {
             link: 'https://github.com/seekheart',
@@ -36,24 +43,47 @@ export const Toolbar = ({items}: ToolbarProps) => {
             icon: <FaLinkedin/>
         }
     ]
+
+
     return (
-        <IconContext.Provider value={{className: "w-16 h-16 hover:cursor-pointer text-secondary-600"}}>
-        <nav className='flex items-center justify-start border border-gray-300 bg-primary-400 px-24 shadow-md'>
-            <div className="flex grow gap-8">
+        <IconContext.Provider value={iconDefaultStyles}>
+            <NavigationMenuRadix.Root
+                className='h-24 items-center justify-start border border-gray-300 bg-primary-400 p-8 shadow-md sm:flex sm:justify-between sm:px-24'>
+                <NavigationMenuRadix.List className="hidden grow gap-8 sm:flex">
                 {contactIcons && contactIcons.map(c => (
-                    <ContactIcon link={c.link} icon={c.icon}/>
+                    <ContactIcon link={c.link} icon={c.icon} key={c.link}/>
                 ))}
-            </div>
-            <ul className="flex min-h-24 list-none flex-nowrap items-center text-2xl font-bold text-greyscale-700">
-                {items && items.map(item => (
-                    <li className="p-8 hover:text-white">
-                        <Link className="size-full" to={`${item.link}`}>
+                </NavigationMenuRadix.List>
+                <NavigationMenuRadix.List className="flex flex-nowrap text-2xl font-bold text-greyscale-700 sm:hidden">
+                    <NavigationMenuRadix.Item className="sm:hidden">
+                        <NavigationMenuRadix.Trigger>
+                            <GiHamburgerMenu className="rounded-md bg-greyscale-100 text-greyscale-600"/>
+                        </NavigationMenuRadix.Trigger>
+                        <NavigationMenuRadix.Content className="absolute z-10">
+                            <NavigationMenuRadix.Sub>
+                                <NavigationMenuRadix.List className="flex flex-col bg-white">
+                                    {items && items.map(item => (
+                                        <NavigationMenuRadix.Link href={`${item.link}`} key={item.name}>
+                                            {item.name.toUpperCase()}
+                                        </NavigationMenuRadix.Link>
+                                    ))}
+                                </NavigationMenuRadix.List>
+                            </NavigationMenuRadix.Sub>
+                        </NavigationMenuRadix.Content>
+                    </NavigationMenuRadix.Item>
+                </NavigationMenuRadix.List>
+
+
+                <NavigationMenuRadix.List className="hidden flex-nowrap text-2xl font-bold text-greyscale-700 sm:flex">
+                    {items && items.filter(i => !i.isMobileOnly).map(item => (
+                        <NavigationMenuRadix.Item className="p-8 hover:text-white" key={item.link}>
+                            <Link to={`${item.link}`}>
                             {item.name.toUpperCase()}
                         </Link>
-                    </li>
+                        </NavigationMenuRadix.Item>
                 ))}
-            </ul>
-        </nav>
+                </NavigationMenuRadix.List>
+            </NavigationMenuRadix.Root>
         </IconContext.Provider>
     )
 }

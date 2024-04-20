@@ -70,7 +70,8 @@
     }
 
     h1 {
-        @apply text-8xl;
+        @apply sm:2xl:text-8xl;
+        @apply text-6xl;
     }
 
     h2 {
