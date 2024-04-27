@@ -32,9 +32,9 @@ const JobCard = ({job}: JobCardProps) => {
                 </section>
             </section>
 
-            <section className="flex gap-4">
+            <section className="flex gap-16">
                 <section>
-                    <h2 className="text-base font-medium">Tech Stack</h2>
+                    <h2 className="text-nowrap text-base font-medium">Tech Stack</h2>
                     <ul className="text-sm">
                         {job.techStack.map((item, index) => (
                             <li key={index}>{item}</li>
@@ -43,7 +43,7 @@ const JobCard = ({job}: JobCardProps) => {
                 </section>
                 <section>
                     <h2 className="text-base font-medium">Description</h2>
-                    <ul className="list-disc p-4 text-sm">
+                    <ul className="list-disc px-4 py-1 text-sm">
                         {job.description.map((item, index) => (
                             <li key={index}>{item}</li>
                         ))}
