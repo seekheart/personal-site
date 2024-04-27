@@ -1,5 +1,5 @@
 import dfciLogo from "@assets/dfci-logo.png";
-import metromileLogo from "@assets/metromile.webp";
+import metromileLogo from "@assets/metromile-logo-lemonade.png";
 import panalgoLogo from "@assets/panalgo.png";
 
 export interface Job {
@@ -20,14 +20,26 @@ export const jobs: Job[] = [
         endDate: 'June 2019',
         position: 'Bioinformatics Engineer',
         description: [
-            'Architected ETL data pipelines',
-            'Led green field projects',
+            'Architected and implemented Extract-Transform-Load (ETL) data pipelines',
+            'Led green field projects and modernized tech stack',
             'Mentored junior developers in backend and frontend',
             'Ran workshops to introduce new technology into organization',
         ],
         name: "Dana Farber Cancer Institute",
         companyLogo: dfciLogo,
-        techStack: ['Python', 'Java', 'Oracle SQL', 'Docker', 'Angular 2+', 'Typescript', 'JavaScript', 'NodeJS', 'Git', 'SVN', 'Bamboo CI']
+        techStack: [
+            'Python',
+            'Java',
+            'Oracle SQL',
+            'Docker',
+            'Angular 2+',
+            'Typescript',
+            'JavaScript',
+            'NodeJS',
+            'Git',
+            'SVN',
+            'Bamboo CI'
+        ]
     },
     {
         id: 2,
@@ -35,15 +47,26 @@ export const jobs: Job[] = [
         endDate: 'July 2022',
         position: 'Senior Software Engineer',
         description: [
-            'Built new features for SASS products',
             'Collaborated with external and internal developers on api design and interfaces',
-            'Integrated customer systems into applications',
-            'Innovated and optimized DevOps workflow in company',
-            'Automated onboarding of customers into SASS products'
+            'Integrated customer systems into SASS products',
+            'Architected platform system for managing multi-tenant customer environments',
+            'Reduced bottleneck time for customer onboarding by automating entire deployment process into self serve model'
         ],
         name: "Metromile Inc",
         companyLogo: metromileLogo,
-        techStack: ['Python', 'Kotlin', 'Postgres SQL', 'AWS', 'Kubernetes', 'Docker', 'Groovy', 'ReactJS', 'Git', 'Jenkins', 'Terraform']
+        techStack: [
+            'Python',
+            'Kotlin',
+            'Postgres SQL',
+            'AWS',
+            'Kubernetes',
+            'Docker',
+            'Groovy',
+            'ReactJS',
+            'Git',
+            'Jenkins',
+            'Terraform'
+        ]
     },
     {
         id: 3,
@@ -51,13 +74,26 @@ export const jobs: Job[] = [
         endDate: 'Present',
         position: 'Software Engineer II',
         description: [
-            'Resolved bugs reported by customers in production system',
             'Created framework for backend applications and cloud infrastructure',
-            'Mentored and paired with other engineers on complex problems',
+            'Implemented internal React components in design library following internal design system',
             'Documented SDLC processes and initiated version control strategy for release of software'
         ],
         name: "Panalgo",
         companyLogo: panalgoLogo,
-        techStack: ['CoffeeScript', 'Ruby', 'ReactJS', 'Git', 'Terraform', 'AWS', 'Devpod', 'Docker']
+        techStack: [
+            'CoffeeScript',
+            'MongoDB',
+            'Ruby',
+            'ReactJS',
+            'TailwindCSS',
+            'Playwright',
+            'Radix UI',
+            'Vite',
+            'Git',
+            'Terraform',
+            'AWS',
+            'Devpod',
+            'Docker'
+        ]
     }
 ]
