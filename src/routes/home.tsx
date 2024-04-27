@@ -28,17 +28,17 @@ export const Home = () => {
         }
     ]
     const defaultStyles = {
-        className: "size-24 rounded-md text-secondary-400 sm:size-28 md:size-32 lg:size-36"
+        className: "size-24 rounded-md text-secondary-400 sm:size-28 md:size-36"
     };
 
     return (
         <IconContext.Provider value={defaultStyles}>
             <section className="flex h-screen">
-                <div className="flex flex-col justify-center gap-16 px-8 md:px-24 lg:px-28">
+                <div className="flex flex-col justify-center gap-16 px-8 md:px-20 lg:px-28">
                     <h1 className="font-bold text-primary-600">
                         Mike is a software engineer with {yearsAsEngineer} years of experience
-                </h1>
-                    <ul className="flex gap-4">
+                    </h1>
+                    <ul className="flex gap-4 self-end">
                         {contactIcons && contactIcons.map((icon) => (
                             <Link to={icon.link}>{icon.icon}</Link>
                         ))}
