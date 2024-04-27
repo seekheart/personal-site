@@ -17,39 +17,39 @@ interface Job {
 interface JobCardProps {
     job: Job
 }
+
 const JobCard = ({job}: JobCardProps) => {
-    const {
-        companyLogo,
-        name,
-        position,
-        startDate,
-        endDate,
-        description,
-        techStack} = job;
     return (
-        <Card className="grid grid-cols-2 gap-4" size='xlarge'>
-            <div className="order-1 self-center justify-self-start">
-                <img className="rounded-full object-cover" src={companyLogo} alt="company_logo"/>
-            </div>
-            <div className="order-3 flex flex-col flex-nowrap">
-                <p className="text-lg font-semibold">{name}</p>
-                <span className="">{position}</span>
-                <span className="">{startDate} - {endDate}</span>
-            </div>
-            <div className="order-2">
-                <h4 className="font-semibold">Job Highlights</h4>
-                <ul className="list-disc gap-2 pl-6 text-lg">
-                    {description && description.map(d => (
-                        <li>{d}</li>
-                    ))}
-                </ul>
-            </div>
-            <div className="order-4">
-                <h4 className="font-semibold">Tech Stack</h4>
-                <ul className="list-disc pl-6 text-lg">
-                    {techStack.map(t => <li>{t}</li>)}
-                </ul>
-            </div>
+        <Card intent='vertical' className="gap-4 p-4">
+            <section className="flex gap-4">
+                <section className="max-h-32 max-w-32">
+                    <img src={job.companyLogo} alt="company logo"/>
+                </section>
+                <section>
+                    <h1 className="text-base font-semibold">{job.name}</h1>
+                    <p>{job.position}</p>
+                    <p>{job.startDate} - {job.endDate}</p>
+                </section>
+            </section>
+
+            <section className="flex gap-4">
+                <section>
+                    <h2 className="text-base font-medium">Tech Stack</h2>
+                    <ul className="text-sm">
+                        {job.techStack.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                </section>
+                <section>
+                    <h2 className="text-base font-medium">Description</h2>
+                    <ul className="list-disc p-4 text-sm">
+                        {job.description.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                </section>
+            </section>
 
         </Card>
     )
@@ -105,7 +105,7 @@ export const Experience = () => {
         }
     ]
     return (
-        <section className="gap-8 p-24 md:flex md:flex-col lg:grid lg:grid-cols-2 ">
+        <section className="flex flex-col gap-4 overflow-auto p-10">
             {jobs && jobs.map(job => <JobCard job={job}/>)}
         </section>
     )
