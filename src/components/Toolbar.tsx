@@ -13,6 +13,12 @@ const iconDefaultStyles = {
 
 export const Toolbar = ({items}: ToolbarProps) => {
     const {pathname} = useLocation();
+
+    const defaultNavStyles = [
+        'font-bold',
+        'hover:text-secondary-500'
+    ]
+
     return (
         <IconContext.Provider value={iconDefaultStyles}>
             <NavigationMenuRadix.Root className="z-10 h-24 content-center bg-greyscale-900 sm:h-28 md:h-32">
@@ -31,8 +37,8 @@ export const Toolbar = ({items}: ToolbarProps) => {
                                             <NavLink
                                                 className={
                                                     [
-                                                        'font-bold',
-                                                        pathname === item.link ? 'text-secondary-600' : ''
+                                                        ...defaultNavStyles,
+                                                        pathname === item.link ? 'text-secondary-500' : ''
                                                     ].join(' ')
                                                 }
                                                 to={item.link}>
@@ -50,7 +56,12 @@ export const Toolbar = ({items}: ToolbarProps) => {
                                 <li key={item.link} className="p-1">
                                     <NavigationMenuRadix.Link asChild>
                                         <NavLink
-                                            className={pathname === item.link ? 'text-secondary-600' : ''}
+                                            className={
+                                                [
+                                                    ...defaultNavStyles,
+                                                    pathname === item.link ? 'underline decoration-secondary-500' : ''
+                                                ].join(' ')
+                                            }
                                             to={item.link}>
                                             {item.name}
                                         </NavLink>

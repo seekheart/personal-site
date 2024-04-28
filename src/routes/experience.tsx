@@ -31,7 +31,7 @@ const JobCard = ({job}: JobCardProps) => {
                     <h1 className="text-base font-medium sm:text-lg md:text-2xl">Highlights</h1>
                     <ul className="list-disc px-4 text-sm sm:px-5 sm:text-base md:px-6 md:text-lg">
                         {job.description.map((item, index) => (
-                            <li className="leading-5" key={index}>{item}</li>
+                            <li key={index}>{item}</li>
                         ))}
                     </ul>
                 </section>
@@ -43,7 +43,7 @@ const JobCard = ({job}: JobCardProps) => {
 
 export const Experience = () => {
     return (
-        <section className="flex flex-col gap-4 p-10 lg:grid lg:grid-cols-2 lg:p-24">
+        <section className="flex flex-col gap-4 p-10 lg:p-24 xl:grid xl:grid-cols-2">
             {jobs && jobs.map(job => <JobCard job={job}/>)}
         </section>
     )
