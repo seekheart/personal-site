@@ -9,9 +9,9 @@ export const Root = () => {
     ]
 
     return (
-        <div className="flex flex-col justify-center">
-            <Toolbar items={menuItems}/>
-            <Outlet/>
-        </div>
+        <div className="flex min-h-screen w-auto flex-col overflow-auto">
+                <Toolbar items={menuItems}/>
+                <Outlet/>
+            </div>
     )
 }

@@ -1,11 +1,13 @@
 import {cva, VariantProps} from "class-variance-authority";
 import {ComponentPropsWithoutRef} from "react";
 
-const buttonStyles = cva('border-grayscale-600 rounded-md border font-semibold shadow-md',
+const buttonStyles = cva('border-grayscale-700 rounded-md border font-semibold text-white shadow-md',
     {
         variants: {
             intent: {
-                primary: 'text-white bg-primary-400 hover:bg-primary-300'
+                primary: 'bg-primary-700 hover:bg-primary-500',
+                secondary: 'bg-secondary-700 hover:bg-secondary-500',
+                tertiary: 'border-greyscale-300 bg-transparent opacity-80 hover:bg-greyscale-100',
             },
             size: {
                 medium: 'px-6 py-4 text-base',

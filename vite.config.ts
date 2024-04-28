@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path';
 
@@ -14,6 +14,7 @@ export default defineConfig({
       '@routes': path.resolve(__dirname, './src/routes'),
       '@services': path.resolve(__dirname, './src/services'),
       '@util': path.resolve(__dirname, './src/util'),
+      '@data': path.resolve(__dirname, './src/data'),
     },
   }
 })
