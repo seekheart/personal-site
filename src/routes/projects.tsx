@@ -8,14 +8,7 @@ import {BiLogoSpringBoot} from "react-icons/bi";
 import React from "react";
 import {IconContext} from "react-icons";
 import {Button} from "@components/Button";
-
-interface Project {
-    id: number;
-    name: string;
-    link: string;
-    description: string;
-    techStack: string[];
-}
+import {Project, projects} from "@data/Projects";
 
 interface ProjectCardProps {
     project: Project;
@@ -50,68 +43,39 @@ const ProjectCard = ({project}: ProjectCardProps) => {
         return techLogos[techName.toLowerCase()];
     }
 
+    const defaultStyles = {
+        className: "size-16 rounded-md text-secondary-400 sm:size-24 md:size-28"
+    };
+
     return (
-        <IconContext.Provider value={{className: "w-16 h-16 text-secondary-500"}}>
-            <Card className="flex flex-col flex-nowrap gap-2" size='xlarge'>
-                <h4 className="font-semibold">{name}</h4>
-                <NavLink className="w-fit text-primary-600 hover:text-secondary-200" to={link}>
-                    <Button>Github Link</Button>
-                </NavLink>
-                <p>{description}</p>
-                <h4 className='text-2xl font-medium'>Tech Stack</h4>
-                <div className='flex flex-wrap gap-2 text-base font-semibold'>
-                    {techStack && techStack.map((t) => (
-                            getLogoForTech(t)
-                        )
-                    )}
-                </div>
+        <IconContext.Provider value={defaultStyles}>
+            <Card intent='vertical' className="gap-4 p-4 sm:p-8">
+                <section className="flex flex-col gap-2">
+                    <h1 className="text-5xl font-semibold sm:text-2xl">{name}</h1>
+                    <p className="text-lg">{description}</p>
+                    <h1 className='text-2xl font-medium sm:text-2xl'>Tech Stack</h1>
+                    <ul className='flex flex-wrap gap-2'>
+                        {techStack && techStack.map((t, i) => (
+                                <li key={i}>{getLogoForTech(t)}</li>
+
+                            )
+                        )}
+                    </ul>
+                </section>
+                <section className="flex justify-end">
+                    <NavLink className="hover:text-secondary-300" to={link}>
+                        <Button>Github Link</Button>
+                    </NavLink>
+                </section>
             </Card>
         </IconContext.Provider>
     )
 }
 
 export const Projects = () => {
-    const projects: Project[] = [
-        {
-            id: 1,
-            name: 'Jainy Bot',
-            link: 'https://github.com/seekheart/jainy_bot',
-            description: 'Discord Bot for managing The Bribby Borb Club Server',
-            techStack: ['Python', 'Docker']
-        },
-        {
-            id: 2,
-            name: 'Coder Directory Api',
-            link: 'https://github.com/seekheart/coder_directory_api',
-            description: 'REST api built using Flask for listing coders',
-            techStack: ['Python', 'Flask', 'MongoDB']
-        },
-        {
-            id: 3,
-            name: 'Mhs2',
-            link: 'https://github.com/seekheart/mhs2',
-            description: 'Simple Angular website for listing details on Monster Hunter Stories 2 Combat NPC Mechanics',
-            techStack: ['TypeScript', 'JavaScript', 'nodeJS', 'Angular', 'SASS', 'CSS', 'Nginx', 'Helm Charts', 'Kubernetes']
-        },
-        {
-            id: 4,
-            name: 'Super Pal',
-            link: 'https://github.com/seekheart/super-pal',
-            description: 'A discord bot written in Kotlin for managing raids in Injustice 2 Mobile',
-            techStack: ['Kotlin', 'Docker', 'Gradle']
-        },
-        {
-            id: 5,
-            name: 'Super Pal Api',
-            link: 'https://github.com/seekheart/super-pal-api',
-            description: 'A RESTful api powered by Springboot for managing raid data in Injustice 2 Mobile',
-            techStack: ['Java', 'Docker', 'Gradle', 'SQL', 'SpringBoot']
-        }
-    ]
-
     return (
-        <section className="gap-4 p-36 md:flex md:flex-col lg:grid lg:grid-cols-3">
-            {projects && projects.map(p => <ProjectCard project={p}/>)}
+        <section className="flex flex-col gap-4 overflow-auto p-10 lg:grid lg:grid-cols-2 lg:p-24">
+            {projects && projects.map(p => <ProjectCard key={p.id} project={p}/>)}
         </section>
     );
 }

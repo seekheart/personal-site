@@ -1,7 +1,7 @@
 import {IconContext} from "react-icons";
 import * as NavigationMenuRadix from "@radix-ui/react-navigation-menu";
 import {GiHamburgerMenu} from "react-icons/gi";
-import {Link} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 
 interface ToolbarProps {
     items: { name: string, link: string }[];
@@ -12,20 +12,31 @@ const iconDefaultStyles = {
 };
 
 export const Toolbar = ({items}: ToolbarProps) => {
+    const {pathname} = useLocation();
     return (
         <IconContext.Provider value={iconDefaultStyles}>
-            <NavigationMenuRadix.Root className="z-10 h-24 w-full content-center bg-black sm:h-28 md:h-32">
-                <NavigationMenuRadix.List className="flex justify-around">
+            <NavigationMenuRadix.Root className="z-10 h-24 content-center bg-greyscale-900 sm:h-28 md:h-32">
+                <NavigationMenuRadix.List className="flex justify-around lg:justify-between lg:px-36">
                     <NavigationMenuRadix.Item className="sm:hidden">
                         <NavigationMenuRadix.Trigger>
                             <GiHamburgerMenu/>
                         </NavigationMenuRadix.Trigger>
-                        <NavigationMenuRadix.Content className="absolute rounded-md bg-greyscale-800">
-                            <ul className="flex flex-col justify-between p-2 text-2xl text-primary-600">
+                        <NavigationMenuRadix.Content
+                            className="absolute left-0 w-full rounded-md bg-greyscale-800 opacity-95">
+                            <ul className="flex flex-col justify-between divide-y-2 divide-double divide-greyscale-600 p-2 text-2xl text-primary-600">
                                 {items.map(item => (
-                                    <li key={item.link} className="p-1">
+                                    <li key={item.link} className="px-12 py-2 hover:text-secondary-600">
                                         <NavigationMenuRadix.Link asChild>
-                                            <Link to={item.link}>{item.name}</Link>
+                                            <NavLink
+                                                className={
+                                                    [
+                                                        'font-bold',
+                                                        pathname === item.link ? 'text-secondary-600' : ''
+                                                    ].join(' ')
+                                                }
+                                                to={item.link}>
+                                                {item.name}
+                                            </NavLink>
                                         </NavigationMenuRadix.Link>
                                     </li>
                                 ))}
@@ -37,7 +48,11 @@ export const Toolbar = ({items}: ToolbarProps) => {
                             {items.map(item => (
                                 <li key={item.link} className="p-1">
                                     <NavigationMenuRadix.Link asChild>
-                                        <Link to={item.link}>{item.name}</Link>
+                                        <NavLink
+                                            className={pathname === item.link ? 'text-secondary-600' : ''}
+                                            to={item.link}>
+                                            {item.name}
+                                        </NavLink>
                                     </NavigationMenuRadix.Link>
                                 </li>
                             ))}

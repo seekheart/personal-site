@@ -18,8 +18,8 @@ const JobCard = ({job}: JobCardProps) => {
                     <img src={job.companyLogo} alt="company logo"/>
                 </section>
             </section>
-            <section className="flex justify-between gap-8 md:gap-40">
-                <section className="w-full grow">
+            <section className="flex justify-between gap-8 md:gap-16">
+                <section className="grow">
                     <h1 className="text-nowrap text-base font-medium sm:text-lg md:text-2xl">Tech Stack</h1>
                     <ul className="text-sm sm:text-base md:text-lg">
                         {job.techStack.map((item, index) => (
@@ -27,9 +27,9 @@ const JobCard = ({job}: JobCardProps) => {
                         ))}
                     </ul>
                 </section>
-                <section className="">
+                <section>
                     <h1 className="text-base font-medium sm:text-lg md:text-2xl">Highlights</h1>
-                    <ul className="list-disc px-4 py-1 text-sm sm:px-5 sm:text-base md:px-6 md:text-lg">
+                    <ul className="list-disc px-4 py-1 text-sm sm:px-5 sm:text-base md:px-8 md:text-lg">
                         {job.description.map((item, index) => (
                             <li key={index}>{item}</li>
                         ))}
@@ -43,7 +43,7 @@ const JobCard = ({job}: JobCardProps) => {
 
 export const Experience = () => {
     return (
-        <section className="flex flex-col gap-4 overflow-auto p-10 md:grid md:grid-cols-2 md:p-24">
+        <section className="flex flex-col gap-4 overflow-auto p-10 lg:grid lg:grid-cols-2 lg:p-24">
             {jobs && jobs.map(job => <JobCard job={job}/>)}
         </section>
     )

@@ -5,7 +5,9 @@ const buttonStyles = cva('border-grayscale-600 rounded-md border font-semibold s
     {
         variants: {
             intent: {
-                primary: 'text-white bg-primary-400 hover:bg-primary-300'
+                primary: 'bg-primary-400 text-white hover:bg-primary-300',
+                secondary: 'bg-primary-400 text-white hover:bg-primary-300',
+                tertiary: 'border-greyscale-300 bg-transparent text-white opacity-80 hover:bg-greyscale-100',
             },
             size: {
                 medium: 'px-6 py-4 text-base',
