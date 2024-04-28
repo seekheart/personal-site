@@ -9,7 +9,7 @@ export const Root = () => {
     ]
 
     return (
-        <div className="flex min-h-screen w-auto flex-col">
+        <div className="flex min-h-screen w-auto flex-col overflow-auto">
                 <Toolbar items={menuItems}/>
                 <Outlet/>
             </div>

@@ -16,7 +16,8 @@ export const Toolbar = ({items}: ToolbarProps) => {
     return (
         <IconContext.Provider value={iconDefaultStyles}>
             <NavigationMenuRadix.Root className="z-10 h-24 content-center bg-greyscale-900 sm:h-28 md:h-32">
-                <NavigationMenuRadix.List className="flex justify-around lg:justify-between lg:px-36">
+                <NavigationMenuRadix.List
+                    className="flex items-center justify-around md:px-24 lg:justify-between lg:px-36">
                     <NavigationMenuRadix.Item className="sm:hidden">
                         <NavigationMenuRadix.Trigger>
                             <GiHamburgerMenu/>
@@ -59,7 +60,7 @@ export const Toolbar = ({items}: ToolbarProps) => {
                         </ul>
                     </NavigationMenuRadix.Item>
                     <NavigationMenuRadix.Item>
-                        <h2 className="text-nowrap p-1 text-primary-500">Mike Tung</h2>
+                        <h2 className="text-nowrap text-primary-500 sm:text-4xl lg:text-5xl">Mike Tung</h2>
                     </NavigationMenuRadix.Item>
                 </NavigationMenuRadix.List>
             </NavigationMenuRadix.Root>
