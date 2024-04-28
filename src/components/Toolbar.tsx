@@ -71,7 +71,9 @@ export const Toolbar = ({items}: ToolbarProps) => {
                         </ul>
                     </NavigationMenuRadix.Item>
                     <NavigationMenuRadix.Item>
-                        <h2 className="text-nowrap text-primary-500 sm:text-4xl lg:text-5xl">Mike Tung</h2>
+                        <h2 className="m-2 text-nowrap font-semibold text-primary-600 sm:text-4xl lg:text-5xl">
+                            Mike Tung
+                        </h2>
                     </NavigationMenuRadix.Item>
                 </NavigationMenuRadix.List>
             </NavigationMenuRadix.Root>
