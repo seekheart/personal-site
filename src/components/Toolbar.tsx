@@ -53,7 +53,7 @@ export const Toolbar = ({items}: ToolbarProps) => {
                     <NavigationMenuRadix.Item className="hidden sm:block">
                         <ul className="flex gap-2 text-4xl lg:gap-6 lg:text-5xl">
                             {items.map(item => (
-                                <li key={item.link} className="p-1">
+                                <li key={item.link} className="hover:text-accent p-1 font-bold">
                                     <NavigationMenuRadix.Link asChild>
                                         <NavLink
                                             className={
@@ -71,7 +71,7 @@ export const Toolbar = ({items}: ToolbarProps) => {
                         </ul>
                     </NavigationMenuRadix.Item>
                     <NavigationMenuRadix.Item>
-                        <h2 className="m-2 text-nowrap font-semibold sm:text-4xl lg:text-5xl">
+                        <h2 className="m-2 text-nowrap font-bold sm:text-4xl lg:text-5xl">
                             Mike Tung
                         </h2>
                     </NavigationMenuRadix.Item>

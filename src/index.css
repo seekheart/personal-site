@@ -19,8 +19,18 @@
         --color-greyscale-800: 209 64% 11%;
         --color-greyscale-900: 209 75% 7%;
 
-        --color-surface: var(--color-greyscale-100);
+        --color-surface: 0 0% 100%;
         --color-text: var(--color-greyscale-700);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-brand: 151 61% 20%;
+            --color-accent: 237 55% 80%;
+
+            --color-surface: 156 24% 4%;
+            --color-text: var(--color-greyscale-100);
+        }
     }
 
     html, body {
