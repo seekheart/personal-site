@@ -44,7 +44,7 @@ const ProjectCard = ({project}: ProjectCardProps) => {
     }
 
     const defaultStyles = {
-        className: "size-16 rounded-md text-secondary-400 sm:size-24 md:size-28"
+        className: "size-16 rounded-md sm:size-24 md:size-28 text-accent"
     };
 
     return (
@@ -57,14 +57,13 @@ const ProjectCard = ({project}: ProjectCardProps) => {
                     <ul className='flex flex-wrap gap-2'>
                         {techStack && techStack.map((t, i) => (
                                 <li key={i}>{getLogoForTech(t)}</li>
-
                             )
                         )}
                     </ul>
                 </section>
                 <section className="flex justify-end">
-                    <NavLink className="hover:text-secondary-300" to={link}>
-                        <Button>Github Link</Button>
+                    <NavLink to={link}>
+                        <Button>Github Repository</Button>
                     </NavLink>
                 </section>
             </Card>

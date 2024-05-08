@@ -1,7 +1,7 @@
 import {cva, VariantProps} from "class-variance-authority";
 import {ComponentPropsWithRef} from "react";
 
-const cardStyles = cva("rounded-md border border-gray-300 bg-white shadow ring-gray-50",
+const cardStyles = cva("rounded-md border border-gray-300 bg-surface shadow-lg ring-gray-50",
 {
         variants: {
             intent: {

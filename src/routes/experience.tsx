@@ -15,7 +15,7 @@ const JobCard = ({job}: JobCardProps) => {
                     <p className="md:text-lg">{job.startDate} - {job.endDate}</p>
                 </section>
                 <section className="max-h-32 max-w-32 sm:max-h-64 sm:max-w-64 md:max-w-72">
-                    <img src={job.companyLogo} alt="company logo"/>
+                    <img className="bg-surface" src={job.companyLogo} alt="company logo"/>
                 </section>
             </section>
             <section className="flex justify-between gap-8 md:gap-16">

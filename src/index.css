@@ -6,62 +6,35 @@
 
 @layer base {
     :root {
-        --color-primary-100: 144, 100%, 96%;
-        --color-primary-200: 145, 100%, 92%;
-        --color-primary-300: 144, 100%, 84%;
-        --color-primary-400: 144, 100%, 76%;
-        --color-primary-500: 144, 100%, 60%;
-        --color-primary-600: 144, 100%, 44%;
-        --color-primary-700: 144, 100%, 28%;
-        --color-primary-800: 144, 100%, 20%;
-        --color-primary-900: 143, 100%, 8%;
+        --color-brand: 151 61% 55%;
+        --color-accent: 237 54% 60%;
 
-        --color-secondary-100: 233, 80%, 96%;
-        --color-secondary-200: 234, 77%, 88%;
-        --color-secondary-300: 234, 77%, 68%;
-        --color-secondary-400: 234, 77%, 56%;
-        --color-secondary-500: 234, 77%, 43%;
-        --color-secondary-600: 234, 77%, 36%;
-        --color-secondary-700: 234, 77%, 28%;
-        --color-secondary-800: 233, 78%, 16%;
-        --color-secondary-900: 233, 80%, 8%;
+        --color-greyscale-100: 209 33% 96%;
+        --color-greyscale-200: 209 19% 85%;
+        --color-greyscale-300: 209 24% 76%;
+        --color-greyscale-400: 209 17% 58%;
+        --color-greyscale-500: 209 29% 34%;
+        --color-greyscale-600: 209 41% 26%;
+        --color-greyscale-700: 209 53% 17%;
+        --color-greyscale-800: 209 64% 11%;
+        --color-greyscale-900: 209 75% 7%;
 
-        --color-warning-100: 29, 60%, 89%;
-        --color-warning-200: 28, 53%, 87%;
-        --color-warning-300: 29, 68%, 78%;
-        --color-warning-400: 29, 80%, 63%;
-        --color-warning-500: 29, 69%, 52%;
-        --color-warning-600: 29, 71%, 46%;
-        --color-warning-700: 29, 83%, 40%;
-        --color-warning-800: 29, 84%, 34%;
-        --color-warning-900: 28, 85%, 21%;
+        --color-surface: 0 0% 100%;
+        --color-text: var(--color-greyscale-700);
+    }
 
-        --color-danger-100: 0, 62%, 95%;
-        --color-danger-200: 0, 67%, 87%;
-        --color-danger-300: 0, 73%, 69%;
-        --color-danger-400: 0, 77%, 66%;
-        --color-danger-500: 0, 71%, 53%;
-        --color-danger-600: 0, 70%, 49%;
-        --color-danger-700: 0, 79%, 40%;
-        --color-danger-800: 0, 86%, 31%;
-        --color-danger-900: 0, 92%, 14%;
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-brand: 151 61% 20%;
+            --color-accent: 237 55% 80%;
 
-        --color-greyscale-100: 224, 20%, 89%;
-        --color-greyscale-200: 224, 16%, 81%;
-        --color-greyscale-300: 224, 17%, 70%;
-        --color-greyscale-400: 224, 14%, 62%;
-        --color-greyscale-500: 223, 18%, 46%;
-        --color-greyscale-600: 223, 25%, 33%;
-        --color-greyscale-700: 223, 40%, 24%;
-        --color-greyscale-800: 223, 55%, 11%;
-        --color-greyscale-900: 224, 63%, 9%;
-
-        --color-bg-primary: 0, 0%, 100%;
-        --color-text-primary: 0, 0%, 0%;
+            --color-surface: 156 24% 4%;
+            --color-text: var(--color-greyscale-100);
+        }
     }
 
     html, body {
-        @apply bg-surface font-sans;
+        @apply bg-surface font-sans text-main-text;
     }
 
     * {
