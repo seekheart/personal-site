@@ -8,7 +8,7 @@ interface ToolbarProps {
 }
 
 const iconDefaultStyles = {
-    className: "size-12 hover:cursor-pointer text-primary-600"
+    className: "size-12 hover:cursor-pointer"
 };
 
 export const Toolbar = ({items}: ToolbarProps) => {
@@ -21,7 +21,7 @@ export const Toolbar = ({items}: ToolbarProps) => {
 
     return (
         <IconContext.Provider value={iconDefaultStyles}>
-            <NavigationMenuRadix.Root className="z-10 h-24 content-center bg-greyscale-900 sm:h-28 md:h-32">
+            <NavigationMenuRadix.Root className="bg-brand z-10 h-24 content-center sm:h-28 md:h-32">
                 <NavigationMenuRadix.List
                     className="flex items-center justify-around md:px-24 lg:justify-between lg:px-36">
                     <NavigationMenuRadix.Item className="sm:hidden">
@@ -29,10 +29,10 @@ export const Toolbar = ({items}: ToolbarProps) => {
                             <GiHamburgerMenu/>
                         </NavigationMenuRadix.Trigger>
                         <NavigationMenuRadix.Content
-                            className="absolute left-0 w-full rounded-md bg-greyscale-800 opacity-95">
-                            <ul className="flex flex-col justify-between divide-y-2 divide-double divide-greyscale-600 p-2 text-2xl text-primary-600">
+                            className="absolute left-0 top-16 w-full rounded-md border bg-surface shadow">
+                            <ul className="flex flex-col justify-between divide-y-2 divide-double divide-greyscale-600 p-2 text-2xl">
                                 {items.map(item => (
-                                    <li key={item.link} className="px-12 py-2 hover:text-secondary-600">
+                                    <li key={item.link} className="px-12 py-2">
                                         <NavigationMenuRadix.Link asChild>
                                             <NavLink
                                                 className={
@@ -51,7 +51,7 @@ export const Toolbar = ({items}: ToolbarProps) => {
                         </NavigationMenuRadix.Content>
                     </NavigationMenuRadix.Item>
                     <NavigationMenuRadix.Item className="hidden sm:block">
-                        <ul className="flex gap-2 text-4xl text-primary-600 lg:text-5xl">
+                        <ul className="flex gap-2 text-4xl lg:gap-6 lg:text-5xl">
                             {items.map(item => (
                                 <li key={item.link} className="p-1">
                                     <NavigationMenuRadix.Link asChild>
@@ -59,7 +59,7 @@ export const Toolbar = ({items}: ToolbarProps) => {
                                             className={
                                                 [
                                                     ...defaultNavStyles,
-                                                    pathname === item.link ? 'underline decoration-secondary-500' : ''
+                                                    pathname === item.link ? 'underline decoration-accent' : ''
                                                 ].join(' ')
                                             }
                                             to={item.link}>
@@ -71,7 +71,7 @@ export const Toolbar = ({items}: ToolbarProps) => {
                         </ul>
                     </NavigationMenuRadix.Item>
                     <NavigationMenuRadix.Item>
-                        <h2 className="m-2 text-nowrap font-semibold text-primary-600 sm:text-4xl lg:text-5xl">
+                        <h2 className="m-2 text-nowrap font-semibold sm:text-4xl lg:text-5xl">
                             Mike Tung
                         </h2>
                     </NavigationMenuRadix.Item>
