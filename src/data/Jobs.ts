@@ -1,6 +1,7 @@
 import dfciLogo from "@assets/dfci-logo.png";
 import metromileLogo from "@assets/metromile-logo-lemonade.png";
 import panalgoLogo from "@assets/panalgo.png";
+import returnalyzeLogo from "@assets/returnalyzeLogo.webp";
 
 export interface Job {
     id: number;
@@ -71,7 +72,7 @@ export const jobs: Job[] = [
     {
         id: 3,
         startDate: "July 2022",
-        endDate: 'Present',
+        endDate: 'November 2024',
         position: 'Software Engineer II',
         description: [
             'Created framework for backend applications and cloud infrastructure',
@@ -94,6 +95,34 @@ export const jobs: Job[] = [
             'AWS',
             'Devpod',
             'Docker'
+        ]
+    },
+    {
+        id: 4,
+        name: 'Returnalyze',
+        companyLogo: returnalyzeLogo,
+        startDate: "November 2024",
+        endDate: "Present",
+        position: "Technical Lead",
+        description: [
+            'Architected new Core Platform',
+            'Implemented and optimized cloud infrastructure to reduce cost and scale application performance',
+            'Documented and implemented new SDLC for releasing software to align with business values',
+            'Automated software continuous integration and continuous delivery to systematically deliver key features and fixes to customer environment',
+            'Organized, compiled, and documented SOC2 compliance audits'
+        ],
+        techStack: [
+            'Kotlin',
+            'Python',
+            'TypeScript',
+            'SQL',
+            'Spring Boot',
+            'ReactJS',
+            'Auth0',
+            'Terraform',
+            'Git',
+            'Docker',
+            'AWS'
         ]
     }
 ]
