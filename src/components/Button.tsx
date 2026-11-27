@@ -1,7 +1,7 @@
 import {cva, VariantProps} from "class-variance-authority";
 import {ComponentPropsWithoutRef} from "react";
 
-const buttonStyles = cva('border-grayscale-700 rounded-md border font-semibold text-main-text shadow-md',
+const buttonStyles = cva('rounded-md border border-greyscale-700 font-semibold text-main-text shadow-md dark:border-greyscale-300',
     {
         variants: {
             intent: {

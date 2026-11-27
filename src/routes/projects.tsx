@@ -44,7 +44,7 @@ const ProjectCard = ({project}: ProjectCardProps) => {
     }
 
     const defaultStyles = {
-        className: "size-16 rounded-md sm:size-24 md:size-28 text-accent"
+        className: "size-16 rounded-md text-accent sm:size-24 md:size-28"
     };
 
     return (
