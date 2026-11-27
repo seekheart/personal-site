@@ -11,7 +11,7 @@ export interface ContactIconProps {
 }
 
 const defaultStyles = {
-    className: "size-24 rounded-md text-secondary-400 sm:size-28 md:size-36 text-accent"
+    className: "size-24 rounded-md text-accent sm:size-28 md:size-36"
 };
 
 export const Home = () => {

@@ -16,12 +16,12 @@ export const Toolbar = ({items}: ToolbarProps) => {
 
     const defaultNavStyles = [
         'font-bold',
-        'hover:text-secondary-500'
+        'hover:text-accent'
     ]
 
     return (
         <IconContext.Provider value={iconDefaultStyles}>
-            <NavigationMenuRadix.Root className="bg-brand z-10 h-24 content-center sm:h-28 md:h-32">
+            <NavigationMenuRadix.Root className="z-10 h-24 content-center bg-brand sm:h-28 md:h-32">
                 <NavigationMenuRadix.List
                     className="flex items-center justify-around md:px-24 lg:justify-between lg:px-36">
                     <NavigationMenuRadix.Item className="sm:hidden">
@@ -38,7 +38,7 @@ export const Toolbar = ({items}: ToolbarProps) => {
                                                 className={
                                                     [
                                                         ...defaultNavStyles,
-                                                        pathname === item.link ? 'text-secondary-500' : ''
+                                                        pathname === item.link ? 'underline decoration-accent' : ''
                                                     ].join(' ')
                                                 }
                                                 to={item.link}>
@@ -53,12 +53,13 @@ export const Toolbar = ({items}: ToolbarProps) => {
                     <NavigationMenuRadix.Item className="hidden sm:block">
                         <ul className="flex gap-2 text-4xl lg:gap-6 lg:text-5xl">
                             {items.map(item => (
-                                <li key={item.link} className="hover:text-accent p-1 font-bold">
+                                <li key={item.link} className="font-bold">
                                     <NavigationMenuRadix.Link asChild>
                                         <NavLink
                                             className={
                                                 [
                                                     ...defaultNavStyles,
+                                                    'inline-block p-1',
                                                     pathname === item.link ? 'underline decoration-accent' : ''
                                                 ].join(' ')
                                             }
